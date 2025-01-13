@@ -9,10 +9,15 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route
-          path="/"
+          path="/*"
           element={
             <PrivateRoute>
-              <TodoList />
+              <Routes>
+                <Route path="/" element={<TodoList />} />
+                <Route path="/dashboard" element={<TodoList />} />
+                <Route path="/profile" element={<TodoList />} />
+                <Route path="/settings" element={<TodoList />} />
+              </Routes>
             </PrivateRoute>
           }
         />
